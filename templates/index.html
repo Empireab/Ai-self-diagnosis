@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Self Diagnosis</title>
+    <style>
+        body { font-family: Arial; background: #f0f0f0; padding: 40px; }
+        form { background: white; padding: 20px; border-radius: 10px; max-width: 400px; margin: auto; }
+        h2 { text-align: center; }
+        label { display: block; margin-top: 10px; }
+        button { margin-top: 20px; padding: 10px; width: 100%; background-color: green; color: white; border: none; }
+    </style>
+</head>
+<body>
+    <h2>🩺 AI Medical Diagnosis</h2>
+   <form method="POST" action="/predict">
+    <label><input type="checkbox" name="fever" value="1"> Do you have a fever?</label>
+    <label><input type="checkbox" name="cough" value="1"> Do you have a cough?</label>
+    <label><input type="checkbox" name="headache" value="1"> Do you have a headache?</label>
+    <label><input type="checkbox" name="fatigue" value="1"> Do you feel tired or weak?</label>
+    <label><input type="checkbox" name="sore_throat" value="1"> Do you have a sore throat?</label>
+    <label><input type="checkbox" name="runny_nose" value="1"> Do you have a runny nose?</label>
+    <label><input type="checkbox" name="short_breath" value="1"> Are you experiencing shortness of breath?</label>
+    <label><input type="checkbox" name="chest_pain" value="1"> Do you feel chest pain?</label>
+    <label><input type="checkbox" name="vomiting" value="1"> Have you vomited recently?</label>
+    <label><input type="checkbox" name="body_ache" value="1"> Do you have body aches?</label>
+
+    <button type="submit">Diagnose</button>
+</form>
+
+    {% if prediction %}
+        <h3 style="text-align:center; margin-top: 20px;">
+            🤖 Possible Diagnosis: <strong>{{ prediction }}</strong>
+        </h3>
+    {% endif %}
+</body>
+</html>
