@@ -1,36 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AI Self Diagnosis</title>
-    <style>
-        body { font-family: Arial; background: #f0f0f0; padding: 40px; }
-        form { background: white; padding: 20px; border-radius: 10px; max-width: 400px; margin: auto; }
-        h2 { text-align: center; }
-        label { display: block; margin-top: 10px; }
-        button { margin-top: 20px; padding: 10px; width: 100%; background-color: green; color: white; border: none; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Self Diagnosis</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.2);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      margin-top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .result {
+      background: #e6ffe6;
+      color: #006600;
+      padding: 15px;
+      margin-top: 20px;
+      border-left: 5px solid #00cc00;
+      border-radius: 5px;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    <h2>🩺 AI Medical Diagnosis</h2>
-   <form method="POST" action="/predict">
-    <label><input type="checkbox" name="fever" value="1"> Do you have a fever?</label>
-    <label><input type="checkbox" name="cough" value="1"> Do you have a cough?</label>
-    <label><input type="checkbox" name="headache" value="1"> Do you have a headache?</label>
-    <label><input type="checkbox" name="fatigue" value="1"> Do you feel tired or weak?</label>
-    <label><input type="checkbox" name="sore_throat" value="1"> Do you have a sore throat?</label>
-    <label><input type="checkbox" name="runny_nose" value="1"> Do you have a runny nose?</label>
-    <label><input type="checkbox" name="short_breath" value="1"> Are you experiencing shortness of breath?</label>
-    <label><input type="checkbox" name="chest_pain" value="1"> Do you feel chest pain?</label>
-    <label><input type="checkbox" name="vomiting" value="1"> Have you vomited recently?</label>
-    <label><input type="checkbox" name="body_ache" value="1"> Do you have body aches?</label>
+  <div class="container">
+    <h2>🩺 AI Self Diagnosis</h2>
+    <form method="POST" action="/predict" autocomplete="off">
+      <label><input type="checkbox" name="fever" value="1"> do you have Fever</label>
+      <label><input type="checkbox" name="cough" value="1">do you have Cough</label>
+      <label><input type="checkbox" name="headache" value="1">do you have Headache</label>
+      <label><input type="checkbox" name="fatigue" value="1">do you have Fatigue</label>
+      <label><input type="checkbox" name="sore_throat" value="1"> do you have Sore Throat</label>
+      <label><input type="checkbox" name="runny_nose" value="1">do you have  Runny Nose</label>
+      <label><input type="checkbox" name="short_breath" value="1">do you have Shortness of Breath</label>
+      <label><input type="checkbox" name="chest_pain" value="1">do you have Chest Pain</label>
+      <label><input type="checkbox" name="vomiting" value="1"> do you have Vomiting</label>
+      <label><input type="checkbox" name="body_ache" value="1"> do you have Body Ache</label>
 
-    <button type="submit">Diagnose</button>
-</form>
+      <button type="submit">Diagnose</button>
+    </form>
 
     {% if prediction %}
-        <h3 style="text-align:center; margin-top: 20px;">
-            🤖 Possible Diagnosis: <strong>{{ prediction }}</strong>
-        </h3>
+      <div class="result">
+        🤖 Diagnosis: <strong>{{ prediction }}</strong>
+      </div>
     {% endif %}
+  </div>
 </body>
 </html>

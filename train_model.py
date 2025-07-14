@@ -15,7 +15,7 @@ data = {
     'vomiting':     [0, 0, 0, 0, 1, 1, 1, 1, 0, 1],
     'body_ache':    [1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
   'diagnosis': [
-    'cold', 'cold', 'Flu',  'Flu', 'Malaria', 'Typhoid', 'Pneumonia', 'Typhoid', 'Flu', 'pneumonia'
+    'cold', 'diabetes', 'Flu',  'diarrhea', 'Malaria', 'cholera', 'Pneumonia', 'Typhoid', 'Flu', 'pneumonia'
   ]
 }
 
@@ -32,4 +32,4 @@ model.fit(X, y)
 with open("model.pkl", "wb") as f:
     pickle.dump(model, f)
 
-print("✅ Model trained and saved with 10 symptoms!")
+print("✅ Model trained and saved with 10 symptoms!")
